@@ -12,17 +12,27 @@ bin/kafka-server-start.sh config/server.properties
 ```
 
 ## Comandos do Kafka:
-### Descrever os tópicos:
+### descrever os tópicos:
 ```sh
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe
 ```
 
 ### produzir uma mensagem
 ```sh
-bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic topic-name
+bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER
 ```
 
 ### consumir uma mensagem
 ```sh
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-name
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER
+```
+
+### alterar as partições de um tópico:
+```sh
+bin/kafka-topics.sh --alter --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --partitions 3
+```
+
+### analisar os grupos de consumers:
+```sh
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --all-groups
 ```
